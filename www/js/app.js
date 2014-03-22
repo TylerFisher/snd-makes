@@ -1,17 +1,58 @@
-$(function() {
-    // No box ad when we have adhesion, so #main-content gets 12 columns
-    if (window.innerWidth <= 1024){
-        $('#main-content').removeClass('col-md-8').addClass('col-md-12');
-    }
+var $slides;
+var $sections;
+var $video;
+var $titlecardButtons;
 
-    // Templating example
-    var context = $.extend(APP_CONFIG, {
-        'template_path': 'jst/example.html',
-        'config': JSON.stringify(APP_CONFIG, null, 4),
-        'copy': JSON.stringify(COPY, null, 4)
+var setUpFullPage = function() {
+    $.fn.fullpage({
+        autoScrolling: false,
+        verticalCentered: false,
+        resize: false,
+        css3: true,
+        scrollingSpeed: 100,
+        loopHorizontal: false,
+        easing: 'swing',
+        afterSlideLoad: autoplayVideo,
+        onSlideLeave: stopVideo
+    });
+};
+
+var autoplayVideo = function(anchor, index, slideAnchor, slideIndex) {
+    var $el;
+    _.each($slides, function(slide) {
+        if ($(slide).data('anchor') === slideAnchor) {
+            $el = $(slide);
+        }
     });
 
-    var html = JST.example(context);
+    $el.find('video')[0].play();
 
-    $('#template-example').html(html);
+}
+
+var stopVideo = function(anchor, i, slideIndex, direction) {
+    var $el;
+
+    $el = $($slides[slideIndex + 1]);
+
+    $el.find('video')[0].pause();
+
+}
+
+$(document).ready(function() {
+
+    /*
+    * Define vars
+    */
+
+    $slides = $('.section, .slide');
+    $sections = $('.section');
+    $video = $('.video');
+    $titlecardButtons = $('.btn-play');
+    if (window.location.hash) {
+        slug = window.location.hash.substring(1);
+    }
+
+    // init chapters
+
+    setUpFullPage();
 });
