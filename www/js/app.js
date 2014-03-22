@@ -12,10 +12,16 @@ var setUpFullPage = function() {
         scrollingSpeed: 100,
         loopHorizontal: false,
         easing: 'swing',
+        afterRender: render,
         afterSlideLoad: autoplayVideo,
         onSlideLeave: stopVideo
     });
 };
+
+var render = function() {
+    var $el = $('.slide.active');
+    $el.find('video')[0].play();
+}
 
 var autoplayVideo = function(anchor, index, slideAnchor, slideIndex) {
     var $el;
