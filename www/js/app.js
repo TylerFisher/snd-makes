@@ -42,8 +42,11 @@ var autoplayVideo = function(anchor, index, slideAnchor, slideIndex) {
             $el = $(slide);
         }
     });
+    var video = $el.find('video')[0];
+    if (video) {
+        video.play();
+    }
 
-    $el.find('video')[0].play();
 
     renderNextVideo($el);
 }
@@ -60,7 +63,12 @@ var stopVideo = function(anchor, i, slideIndex, direction) {
 
     $el = $($slides[slideIndex + 1]);
 
-    $el.find('video')[0].pause();
+    var video = $el.find('video')[0];
+
+    if (video) {
+        video.pause();
+    }
+
 
 }
 

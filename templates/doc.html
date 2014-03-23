@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block header_content %}
+
+{% endblock %}
+
+
+{% block content %}
+
+{% for row in COPY.Doc %}
+    {% include "%s.html"|format(row.template) ignore missing %}
+{% endfor %}
+</div>
+{% endblock %}

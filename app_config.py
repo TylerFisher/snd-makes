@@ -31,8 +31,8 @@ PROJECT_FILENAME = 'snd_makes'
 """
 DEPLOYMENT
 """
-PRODUCTION_S3_BUCKETS = ['apps.npr.org', 'apps2.npr.org']
-STAGING_S3_BUCKETS = ['stage-apps.npr.org']
+PRODUCTION_S3_BUCKETS = ['videoslider.knightlab.com']
+STAGING_S3_BUCKETS = ['videoslider.knilab.com']
 ASSETS_S3_BUCKET = 'assets.apps.npr.org'
 
 PRODUCTION_SERVERS = ['cron.nprapps.org']

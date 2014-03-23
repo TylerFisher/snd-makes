@@ -1,10 +1,3 @@
-<div {% if row.data_panel %} data-anchor="{{ row.data_panel }}" {% endif %} class="slide image" {% if row.image %} style="background-image={{ row.image }}" {% endif %}>
+<div data-anchor="{{ row.anchor }}" class="slide image" {% if row.image %} style="background-image: url('http://videoslider.knightlab.com.s3.amazonaws.com/{{ row.image }}');" {% endif %}>
 
-    <div class="text full-block {% if row.text_background == 'yes' %} text-bg {% endif %}">
-        <div class="full-block-cell">
-            <div class="full-block-content">
-                {{ row.text }}
-            </div><!--full-block-content-->
-        </div><!--full-block-cell-->
-    </div><!--full-block-->
-</div><!--slide-->
+<div class="text"></div>
