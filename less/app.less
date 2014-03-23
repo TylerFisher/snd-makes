@@ -6,6 +6,17 @@
 // Global variables
 @img-root: "../img";
 
+// Breakpoints
+@screen-mega-above: ~"screen and (min-width: 1440px)";
+@screen-large-above: ~"screen and (min-width: 1201px)";
+@screen-large: ~"screen and (min-width: 1200px)";
+@screen-medium-above: ~"screen and (min-width: 992px)";
+@screen-medium: ~"screen and (max-width: 991px)";
+@screen-small-above: ~"screen and (min-width: 768px)";
+@screen-small: ~"screen and (max-width: 767px)";
+@screen-tiny-above: ~"screen and (min-width: 481px)";
+@screen-tiny: ~"screen and (max-width: 480px)";
+
 
 // General styles
 body {
@@ -27,55 +38,64 @@ body {
         max-width: 100%;
         height: auto;
     }
+}
 
-    .text {
-        font-family: 'franklin-gothic-urw', 'Helvetica', Arial, sans-serif;
-        font-weight: 500;
-        width: 50%;
-        position: absolute;
-        color: white;
-        padding: 80px;
-        font-size: 60px;
-        line-height: 60px;
-        text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+.text {
+    font-family: 'franklin-gothic-urw', 'Helvetica', Arial, sans-serif;
+    font-weight: 500;
+    width: 50%;
+    position: absolute;
+    color: white;
+    padding: 80px;
+    font-size: 48px;
+    line-height: 48px;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+
+    h1 {
+        text-transform: uppercase;
+        font-size: 64px;
+        font-weight: 900;
+        margin: 0 -30px;
     }
 
-    .serif {
-        font-family: 'Times New Roman', serif;
-        font-weight: bold;
-        font-size: 36px;
-        background-color: rgba(0,0,0,.3);
-        border-radius: 5px;
-        padding: 10px;
+    @media @screen-medium {
+        width: 75%;
     }
+}
 
-    .text.center {
-        top: 50%; left: 50%;
-        -webkit-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-        transform: translate(-50%,-50%);
-        text-align: center;
-    }
+.serif {
+    font-size: 36px;
+    background-color: rgba(0,0,0,.3);
+    border-radius: 5px;
+    padding: 10px;
+}
 
-    .text.top-left {
-        top: 0; left: 0;
-        text-align: left;
-    }
+.text.center {
+    top: 50%; left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
 
-    .text.top-right {
-        top: 0; right: 0;
-        text-align: right;
-    }
+.text.top-left {
+    top: 0; left: 0;
+    text-align: left;
+}
 
-    .text.bottom-left {
-        bottom: 0; left: 0;
-        text-align: left;
-    }
+.text.top-right {
+    top: 0; right: 0;
+    text-align: right;
+}
 
-    .text.bottom-right {
-        bottom: 0; right: 0;
-        text-align: right;
-    }
+.text.bottom-left {
+    bottom: 0; left: 0;
+    text-align: left;
+}
+
+.text.bottom-right {
+    bottom: 0; right: 0;
+    text-align: right;
 }
 
 .slide.image {

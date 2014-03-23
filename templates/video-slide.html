@@ -1,6 +1,6 @@
 <div class="slide video" data-anchor="{{ row.anchor }}">
     <div class="player">
-        <video data-video="http://videoslider.knightlab.com.s3.amazonaws.com/{{ row.video }}.mp4" src="" {% if row.loop %} loop {% endif %} preload="metadata"></video>
+        <video data-video="http://videoslider.knightlab.com/{{ row.video }}.mp4" src="" {% if row.loop %} loop {% endif %} preload="metadata"></video>
 
         <div class="text {{row.position}}">
             {{ row.text }}

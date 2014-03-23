@@ -21,9 +21,11 @@ var setUpFullPage = function() {
 var render = function() {
     var $el = $('.slide.active');
     var video = $el.find('video')[0];
-    var videoFile = $(video).data('video');
-    $(video).attr('src', videoFile);
-    video.play();
+    if (video) {
+        var videoFile = $(video).data('video');
+        $(video).attr('src', videoFile);
+        video.play();
+    }
 
     $('body').css('opacity', 1);
 

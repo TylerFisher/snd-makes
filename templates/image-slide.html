@@ -1,3 +1,5 @@
 <div data-anchor="{{ row.anchor }}" class="slide image" {% if row.image %} style="background-image: url('http://videoslider.knightlab.com.s3.amazonaws.com/{{ row.image }}');" {% endif %}>
 
-<div class="text"></div>
+<div class="text {{row.position}}">
+    {{ row.text }}
+</div>
