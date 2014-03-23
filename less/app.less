@@ -9,10 +9,11 @@
 
 // General styles
 body {
-    font: 16px/1.5em Georgia, serif;
+    font: 16px/1.5em 'franklin-gothic-urw', Helvetica, Arial, sans-serif;
     color: #111;
-    -webkit-font-smoothing: antialiased;
-    // background-color: black;
+    background-color: black;
+    opacity: 0;
+    .transition(opacity 5s ease);
 }
 
 .player {
@@ -28,13 +29,21 @@ body {
     }
 
     .text {
+        font-family: 'franklin-gothic-urw', 'Helvetica', Arial, sans-serif;
+        font-weight: 500;
         width: 50%;
         position: absolute;
         color: white;
-        padding: 50px;
-        font-size: 72px;
-        line-height: 72px;
+        padding: 80px;
+        font-size: 60px;
+        line-height: 60px;
         text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+    }
+
+    .serif {
+        font-family: 'Times New Roman', serif;
+        font-weight: bold;
+        font-size: 36px;
     }
 
     .text.center {
@@ -69,6 +78,30 @@ body {
 .slide.image {
     background-size: cover;
     background-position: center center;
+}
+
+.controlArrow {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    margin-top: -38px;
+    font-family: 'FontAwesome';
+    font-size: 72px;
+    color: white;
+}
+.controlArrow.prev {
+    left: 0px;
+    &:before {
+        content: '\f053'
+    }
+}
+.controlArrow.next {
+    right: 50px;
+    &:before {
+        content: '\f054'
+    }
 }
 
 
@@ -126,26 +159,6 @@ html, body {
 .slidesContainer {
     float: left;
     position: relative;
-}
-.controlArrow {
-    position: absolute;
-    top: 50%;
-    cursor: pointer;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    margin-top: -38px;
-}
-.controlArrow.prev {
-    left: 15px;
-    width: 0;
-    border-width: 38.5px 34px 38.5px 0;
-    border-color: transparent #fff transparent transparent;
-}
-.controlArrow.next {
-    right: 15px;
-    border-width: 38.5px 0 38.5px 34px;
-    border-color: transparent transparent transparent #fff;
 }
 .scrollable {
     overflow: scroll;

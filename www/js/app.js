@@ -20,7 +20,19 @@ var setUpFullPage = function() {
 
 var render = function() {
     var $el = $('.slide.active');
-    $el.find('video')[0].play();
+    var video = $el.find('video')[0];
+    var videoFile = $(video).data('video');
+    $(video).attr('src', videoFile);
+    video.play();
+
+    $('body').css('opacity', 1);
+
+
+    var nextSlide = $el.next();
+    var nextVideo = $(nextSlide).find('video')[0];
+    var nextVideoFile = $(nextVideo).data('video');
+    $(nextVideo).attr('src', nextVideoFile);
+
 }
 
 var autoplayVideo = function(anchor, index, slideAnchor, slideIndex) {
@@ -33,6 +45,14 @@ var autoplayVideo = function(anchor, index, slideAnchor, slideIndex) {
 
     $el.find('video')[0].play();
 
+    renderNextVideo($el);
+}
+
+var renderNextVideo = function($el) {
+    var nextSlide = $el.next();
+    var video = $(nextSlide).find('video')[0];
+    var videoFile = $(video).data('video');
+    $(video).attr('src', videoFile);
 }
 
 var stopVideo = function(anchor, i, slideIndex, direction) {
